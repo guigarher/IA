@@ -18,11 +18,11 @@ print(f"Usuario evagd: {usuario_evagd}")
 #2.      Control de flujo (if/else)
 def es_par(numero):
     """Función que determina si un número es par o impar."""
-    if numero % 2 == 0:
+    if numero % 2 == 0: # Si el número es divisible por 2, es par
         return True
     else:
         return False
-numero = int(input("Introduce un número para verificar si es par o impar: "))
+numero = int(input("Introduce un número para verificar si es par o impar: ")) 
 if es_par(numero):
     print(f"El número {numero} es par.")
 else:
@@ -33,7 +33,7 @@ print(f"Usuario evagd: {usuario_evagd}")
 def tabla_multiplicar(n):
     """Función que imprime la tabla de multiplicar del número n."""
     for i in range(1, 11):
-        print(f"{n} x {i} = {n * i}")
+        print(f"{n} x {i} = {n * i}") 
 num = int(input("Introduce un número para ver su tabla de multiplicar: "))
 tabla_multiplicar(num)
 print(f"Usuario evagd: {usuario_evagd}")
@@ -41,43 +41,43 @@ print(f"Usuario evagd: {usuario_evagd}")
 #4.      Estadísticas 
 def estadisticas(lista):
     """Función que devuelve un diccionario con el mínimo, máximo y media de una lista numérica."""
-    if not lista:
-        return {"mínimo": None, "máximo": None, "media": None}
+    if not lista: 
+        return {"mínimo": None, "máximo": None, "media": None} # Manejo de lista vacía
     
-    minimo = min(lista)
-    maximo = max(lista)
-    media = sum(lista) / len(lista)
+    minimo = min(lista) # Encontrar el valor mínimo
+    maximo = max(lista) # Encontrar el valor máximo
+    media = sum(lista) / len(lista) # Calcular la media
     
-    return {"mínimo": minimo, "máximo": maximo, "media": media}
-numeros = [int(x) for x in input("Introduce una lista de números separados por espacios: ").split()]
-resultados = estadisticas(numeros)
+    return {"mínimo": minimo, "máximo": maximo, "media": media} # Devolver los resultados en un diccionario
+numeros = [int(x) for x in input("Introduce una lista de números separados por espacios: ").split()] 
+resultados = estadisticas(numeros) 
 print("Estadísticas:", resultados)
 print(f"Usuario evagd: {usuario_evagd}")
 
 #5.      Diccionarios y conteo
 def contar_palabras(texto):
     """Función que cuenta la frecuencia de cada palabra en un texto."""
-    palabras = texto.split()
-    frecuencia = {}
+    palabras = texto.split() # Dividir el texto en palabras
+    frecuencia = {} # Diccionario para almacenar la frecuencia de las palabras
     
-    for palabra in palabras:
+    for palabra in palabras: 
         palabra = palabra.lower().strip('.,!?;"()[]{}')  # Normalizar la palabra
         if palabra in frecuencia:
-            frecuencia[palabra] += 1
+            frecuencia[palabra] += 1 # Incrementar el conteo si la palabra ya está en el diccionario
         else:
-            frecuencia[palabra] = 1
+            frecuencia[palabra] = 1 # Inicializar el conteo si es la primera vez que aparece la palabra
             
-    return frecuencia
+    return frecuencia 
 texto = input("Introduce un texto para contar la frecuencia de las palabras: ")
-frecuencia_palabras = contar_palabras(texto)
-print("Frecuencia de palabras:", frecuencia_palabras)
+frecuencia_palabras = contar_palabras(texto) 
+print("Frecuencia de palabras:", frecuencia_palabras) 
 print(f"Usuario evagd: {usuario_evagd}")
 
 #6.      Listas por comprensión
 def cuadrados(lista):
     """Función que devuelve una lista con los cuadrados de los números de la lista original."""
-    return [x**2 for x in lista]
-numeros = [int(x) for x in input("Introduce una lista de números separados por espacios: ").split()]
+    return [x**2 for x in lista] # Lista por comprensión para calcular los cuadrados
+numeros = [int(x) for x in input("Introduce una lista de números separados por espacios: ").split()] 
 cuadrados_numeros = cuadrados(numeros)
 print("Cuadrados de los números:", cuadrados_numeros)
 print(f"Usuario evagd: {usuario_evagd}")
@@ -85,8 +85,8 @@ print(f"Usuario evagd: {usuario_evagd}")
 #7.      Cadenas y slicing
 def es_palindromo(cadena):
     """Función que verifica si una cadena es un palíndromo."""
-    cadena = cadena.replace(" ", "").lower()
-    return cadena == cadena[::-1]
+    cadena = cadena.replace(" ", "").lower() # Normalizar la cadena
+    return cadena == cadena[::-1] # Comparar la cadena con su reverso
 texto = input("Introduce una cadena para verificar si es un palíndromo: ")
 if es_palindromo(texto):
     print(f'La cadena "{texto}" es un palíndromo.')
@@ -121,8 +121,22 @@ def min_max(lista):
     """Función que devuelve el mínimo y máximo de una lista como una tupla."""
     if not lista:
         return (None, None)
-    return (min(lista), max(lista))
+    return (min(lista), max(lista)) # Devolver el mínimo y máximo como una tupla
 numeros = [int(x) for x in input("Introduce una lista de números separados por espacios: ").split()]
 minimo, maximo = min_max(numeros)
 print(f"Mínimo: {minimo}, Máximo: {maximo}")
+print(f"Usuario evagd: {usuario_evagd}")
+
+#11.  Clases y objetos Crea una clase Rectangulo con atributos ancho y alto, y un método area() que devuelva el área.
+class Rectangulo:
+    def __init__(self, ancho, alto): # Constructor de la clase
+        self.ancho = ancho # Atributo ancho
+        self.alto = alto # Atributo alto
+    
+    def area(self): # Método para calcular el área
+        return self.ancho * self.alto 
+ancho = float(input("Introduce el ancho del rectángulo: "))
+alto = float(input("Introduce el alto del rectángulo: "))
+rectangulo = Rectangulo(ancho, alto) # Crear una instancia de Rectangulo
+print("El área del rectángulo es:", rectangulo.area()) 
 print(f"Usuario evagd: {usuario_evagd}")
