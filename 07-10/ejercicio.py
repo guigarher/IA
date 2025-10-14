@@ -1,6 +1,8 @@
 import numpy as np
 import timeit
 import pandas as pd
+import matplotlib.pyplot as plt
+
 
 
 #Numpy
@@ -75,3 +77,46 @@ print("Filas que cumplen ambas condiciones:\n", filtro) # Mostrar las filas que 
 df["petal_area"] = df["PetalLengthCm"] * df["PetalWidthCm"] # Crear una nueva columna "petal_area" como el producto de "PetalLengthCm" y "PetalWidthCm"
 print("DataFrame con la nueva columna 'petal_area':\n", df.head()) # Mostrar las primeras filas del DataFrame con la nueva columna
 
+
+medias_por_especie = df.groupby("Species").mean(numeric_only=True) # Calcular la media de las columnas numéricas agrupadas por "Species"
+print("Medias por especie:\n", medias_por_especie.round(2)) # Mostrar las medias por especie
+
+
+valor_maximo = df["PetalWidthCm"].max() # Encontrar el valor máximo en la columna "PetalWidthCm"
+print("Valor máximo de PetalWidthCm:", valor_maximo) # Mostrar el valor máximo encontrado
+fila_maxima = df[df["PetalWidthCm"] == valor_maximo] # Filtrar la fila que contiene el valor máximo
+especie_maxima = fila_maxima["Species"].values[0] # Obtener la especie correspondiente al valor máximo
+print("Especie con el valor máximo de PetalWidthCm:", especie_maxima) # Mostrar la especie correspondiente al valor máximo
+
+
+#Matplotlib
+plt.hist(df["SepalLengthCm"], bins=10, color='skyblue', edgecolor="black") # Crear un histograma de la columna "SepalLengthCm"
+plt.title("Histograma de SepalLengthCm") # Título del histograma
+plt.xlabel("SepalLengthCm (cm)") # Etiqueta del eje x
+plt.ylabel("Frecuencia") # Etiqueta del eje y
+plt.show() # Mostrar el histograma
+
+
+medias = df.groupby("Species")["PetalLengthCm"].mean() # Calcular la media de "PetalLengthCm" agrupada por "Species"
+print(medias) # Mostrar las medias calculadas
+
+plt.bar(medias.index, medias.values, color=['lightcoral', 'lightgreen', 'lightblue']) # Crear un gráfico de barras con las medias
+plt.title("Media de PetalLengthCm por Especie") # Título del gráfico
+plt.xlabel("Especie") # Etiqueta del eje x
+plt.ylabel("Media de PetalLengthCm (cm)") # Etiqueta del eje y
+plt.show() # Mostrar el gráfico de barras
+
+
+especies = df["Species"].unique() # Obtener las especies únicas
+colores = ['lightcoral', 'lightgreen', 'lightblue'] # Definir colores para cada especie
+for especie, color in zip(especies, colores): # Iterar sobre cada especie y su color correspondiente
+    subset = df[df["Species"] == especie] # Filtrar el DataFrame por la especie actual
+    plt.scatter(subset["SepalLengthCm"], subset["PetalLengthCm"], label=especie, color=color) # Crear un gráfico de dispersión para la especie actual
+plt.title("SepalLengthCm vs PetalLengthCm") # Título del gráfico de dispersión
+plt.xlabel("SepalLengthCm (cm)") # Etiqueta del eje x
+plt.ylabel("PetalLengthCm (cm)") # Etiqueta del eje y
+plt.legend(title="Especies") # Mostrar la leyenda del gráfico
+plt.show() # Mostrar el gráfico de dispersión
+
+
+#GUILLERMO FELIPE GARCÍA HERNÁNDEZ
