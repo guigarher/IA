@@ -160,7 +160,6 @@ for c in casos:
 
 print(
     "- La 'frontera' intuitiva separa combinaciones de mayor altura/peso/talla (tiende a 0) de las menores (tiende a 1).\n"
-    "- Aun así, es un ejemplo didáctico con muy pocos datos: no es válido para el mundo real.\n"
 )
 print(yo)
 
