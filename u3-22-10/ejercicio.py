@@ -9,7 +9,7 @@ matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 import numpy as np
 
-ALUMNO = "Guillermo García Hernández - 2º DAW"
+yo = "Guillermo García Hernández - 2º DAW"
 
 
 # 1) Cambiar kernel y observar diferencias
@@ -36,7 +36,7 @@ print(
     "- En Iris las clases están bastante separadas; por eso 'linear' y 'rbf' suelen ir muy bien.\n"
     "- 'poly' a veces rinde un poco menos porque puede sobreajustar.\n"
 )
-print(ALUMNO)
+print(yo)
 
 # 2) Cambiar test_size
 print("EJERCICIO 2 (Iris) Cambiar test_size (0.2, 0.3, 0.4)")
@@ -56,7 +56,7 @@ print(
     "- Al subir test_size hay menos datos para entrenar; por eso puede bajar un poco la precisión.\n"
     "- En Iris el efecto es pequeño porque el problema es fácil de separar.\n"
 )
-print(ALUMNO)
+print(yo)
 
 # 3) Frontera 2D cambiando a dos características
 print("EJERCICIO 3 (Iris) Frontera 2D con dos características")
@@ -87,7 +87,7 @@ print(
     f"- Cambié a 2 características para dibujar el plano: {iris.feature_names[f1]} vs {iris.feature_names[f2]}.\n"
     "- Con las variables de pétalo (2 y 3) la separación se ve muy limpia; con sépalo suele mezclarse más.\n"
 )
-print(ALUMNO)
+print(yo)
 
 
 # CÁNCER DE MAMA
@@ -115,7 +115,7 @@ print(
     "- C pequeño (0.1): margen más grande, más generalización, puede bajar recall/precision.\n"
     "- C grande (10): margen pequeño, se ajusta más y puede subir el rendimiento, pero arriesga sobreajuste.\n"
 )
-print(ALUMNO)
+print(yo)
 
 print("EJERCICIO 5 (Cáncer) Aciertos / Fallos")
 clf = svm.SVC(kernel="rbf", C=1, gamma="scale")
@@ -129,7 +129,7 @@ print(
     "- Estos totales confirman el rendimiento global; conviene mirarlos junto al informe de clasificación\n"
     "  para ver el equilibrio entre precision y recall en cada clase.\n"
 )
-print(ALUMNO)
+print(yo)
 
 
 # GÉNERO
@@ -150,7 +150,7 @@ print(f"→ Reentrenado con {len(Xg)} ejemplos.")
 print(
     "- Añadí dos casos más (uno de cada clase) y volví a entrenar para que la frontera sea algo más estable.\n"
 )
-print(ALUMNO)
+print(yo)
 
 print("EJERCICIO 7  Predicciones puntuales")
 casos = [[185,80,10],[162,55,7]]
@@ -162,7 +162,7 @@ print(
     "- La 'frontera' intuitiva separa combinaciones de mayor altura/peso/talla (tiende a 0) de las menores (tiende a 1).\n"
     "- Aun así, es un ejemplo didáctico con muy pocos datos: no es válido para el mundo real.\n"
 )
-print(ALUMNO)
+print(yo)
 
 print("EJERCICIO 8 Altura vs Peso coloreado por clase")
 X_arr = np.array(Xg); y_arr = np.array(yg)
@@ -178,11 +178,11 @@ plt.close()
 print(
     "- El scatter muestra dos grupos aproximados, pero se ve que la separación es muy tosca.\n"
 )
-print(ALUMNO)
+print(yo)
 
 print("EJERCICIO 9 Discusión (límites y riesgos)")
 print(
     "Conclusión: SVM es potente, pero debe aplicarse con responsabilidad.\n"
 )
-print(ALUMNO)
+print(yo)
 
