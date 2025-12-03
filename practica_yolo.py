@@ -1,7 +1,7 @@
 from ultralytics import YOLO
 
 def main():
-    model = YOLO("yolo11m.pt")
+    model = YOLO("yolo11l.pt")
 
     imagenes = [
         "1.jpg",
