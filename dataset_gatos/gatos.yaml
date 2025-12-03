@@ -1,0 +1,5 @@
+train: C:/Users/U_38010700/Desktop/gui/IA/dataset_gatos/images/train
+val: C:/Users/U_38010700/Desktop/gui/IA/dataset_gatos/images/val
+
+names:
+  0: gato
